@@ -1,1 +1,1 @@
-# lambdaconf-2016-elm-workshop-
+# 2016 Elm Workshop
