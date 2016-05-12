@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "summary": "2016 Elm Workshop",
+    "repository": "https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop.git",
+    "license": "GNU3",
+    "source-directories": [
+        "src/complete"
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "4.0.0 <= v < 5.0.0",
+        "elm-lang/html": "1.0.0 <= v < 2.0.0"
+    },
+    "elm-version": "0.17.0 <= v < 0.18.0"
+}
