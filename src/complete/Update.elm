@@ -4,12 +4,11 @@ import Types exposing ( Model
                       , LineItem
                       , Pet
                       , Msg(..) )
-
 import List
 
 
 noCmd : Model -> (Model, Cmd Msg)
-noCmd model = ( model, Cmd.none )
+noCmd model = ( Debug.log "model" model, Cmd.none )
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -18,9 +17,9 @@ update msg model = let
   add : Pet -> List LineItem -> List LineItem
   add pet lineItems =
       if List.member pet <| List.map fst lineItems then
-          lineItems ++ [ (pet, 1) ]
-      else
           lineItems
+      else
+          lineItems ++ [ (pet, 1) ]
 
   mapWhen : (Int -> Int) -> Pet -> LineItem -> LineItem
   mapWhen f pet (pet', volume) =
