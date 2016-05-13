@@ -24,8 +24,17 @@ init : Model
 init =
     { cart = []
     , select = Dropdown.init
+        displayPet
         "Select Pet"
         Nothing
         [ Furby
         , Dragon
         , GelatinousBlob ] }
+
+
+displayPet : Pet -> String
+displayPet pet =
+    case pet of
+        Furby -> "Furby"
+        Dragon -> "Dragon"
+        GelatinousBlob -> "Gelatinous Blob"

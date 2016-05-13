@@ -3,7 +3,7 @@ module View
 
 import Msg exposing (Msg(..))
 import Model exposing (Model, Pet(..))
-import Html exposing (div, node, h3, text, Html)
+import Html exposing (..)
 import Html.App as Html
 import Html.Attributes as Attr
 import Components.Button as Button
@@ -19,7 +19,9 @@ css = node "link"
 
 wrap : List (Html Msg) -> Html Msg
 wrap = div
-    [ Attr.class "container" ]
+    [ Attr.class "container"
+    , Attr.style [("max-width", "46rem")
+                 ,("margin-top", "1.5rem")]]
 
 
 header : Html Msg
@@ -38,10 +40,48 @@ add model =
         Nothing -> Button.view NoOp "Add"
 
 
+cart : Model -> Html Msg
+cart model = let
+    head' = thead []
+        [ tr []
+            [ th []
+                [ text "Pet" ]
+            , th []
+                [ text "Price" ]
+            , th []
+                [ text "Quantity" ]
+            ]
+        ]
+
+    lineItem (pet, quantity) =
+        [ tr []
+            [ td []
+                [ text (Model.displayPet pet) ]
+            , td []
+                [ text "bar" ]
+            , td []
+                [ text (toString quantity) ]
+            ]
+        ]
+
+    body = tbody [] <| List.concatMap lineItem model.cart
+
+
+    in div
+      [ Attr.class "table-responsive" ]
+      [ table
+        [ Attr.class "table table-striped" ]
+        [ head'
+        , body
+        ]
+      ]
+
+
 view : Model -> Html Msg
 view model =
   wrap
   [ css
   , header
+  , cart model
   , Html.map Dropdown (Dropdown.view model.select)
   , add model ]

@@ -14,12 +14,13 @@ type Msg a
 
 type alias Model a =
   { isOpen : Bool
+  , display : a -> String
   , placeholder : String
   , selected : Maybe a
   , options : List a }
 
 
-init : String -> Maybe a -> List a -> Model a
+init : (a -> String) -> String -> Maybe a -> List a -> Model a
 init = Model False
 
 
@@ -38,15 +39,16 @@ update msg model =
                , selected = Just x }, Cmd.none)
 
 
-option : a -> Html (Msg a)
-option a = button
-  [ class "dropdown-item", onClick (Select a) ]
-  [ text (toString a) ]
+option : String -> a -> Html (Msg a)
+option label x =
+    button
+    [ class "dropdown-item", onClick (Select x) ]
+    [ text label ]
 
 
 mainText : Model a -> Html (Msg a)
 mainText model =
-    Maybe.map toString model.selected
+    Maybe.map model.display model.selected
     |> Maybe.withDefault model.placeholder
     |> text
 
@@ -60,5 +62,5 @@ view model =
       [ mainText model ]
     , div
       [ class "dropdown-menu" ]
-      (List.map option model.options)
+      (List.map (\x -> option (model.display x) x) model.options)
     ]
