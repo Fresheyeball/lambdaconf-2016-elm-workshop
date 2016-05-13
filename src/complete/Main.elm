@@ -1,18 +1,14 @@
 module Main exposing (..)
 
 import Html.App as App
-import Types exposing ( Model, Msg )
+import Model
 import View
 import Update
 
 
-init : ( Model, Cmd Msg  )
-init = ( [],    Cmd.none )
-
-
 main : Program Never
 main = App.program
-    { init = init
+    { init = (Model.init, Cmd.none)
     , update = Update.update
-    , subscriptions = (\model -> Sub.none)
+    , subscriptions = always Sub.none
     , view = View.view }

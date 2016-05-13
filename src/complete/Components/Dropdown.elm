@@ -1,4 +1,5 @@
-module Components.Dropdown exposing (..)
+module Components.Dropdown
+    exposing (Msg, Model, update, view, init)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -13,11 +14,16 @@ type Msg a
 
 type alias Model a =
   { isOpen : Bool
-  , selected : a
+  , placeholder : String
+  , selected : Maybe a
   , options : List a }
 
 
-update : Msg a -> Model a -> (Model a, Cmd a)
+init : String -> Maybe a -> List a -> Model a
+init = Model False
+
+
+update : Msg a -> Model a -> (Model a, Cmd (Msg a))
 update msg model =
   case msg of
 
@@ -29,7 +35,7 @@ update msg model =
 
     Select x ->
       ({ model | isOpen = False
-               , selected = x}, Cmd.none)
+               , selected = Just x }, Cmd.none)
 
 
 option : a -> Html (Msg a)
@@ -38,14 +44,21 @@ option a = button
   [ text (toString a) ]
 
 
+mainText : Model a -> Html (Msg a)
+mainText model =
+    Maybe.map toString model.selected
+    |> Maybe.withDefault model.placeholder
+    |> text
+
+
 view : Model a -> Html (Msg a)
 view model =
   div
     [ class <| "dropdown" ++ if model.isOpen then " open" else "" ]
     [ button
       [ class "btn btn-secondary dropdown-toggle", onClick Toggle ]
-      [ text "Dropdown" ]
+      [ mainText model ]
     , div
       [ class "dropdown-menu" ]
-      (List.map option model.options)      
+      (List.map option model.options)
     ]
