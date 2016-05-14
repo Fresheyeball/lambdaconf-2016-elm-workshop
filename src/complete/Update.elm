@@ -7,10 +7,6 @@ import Components.Dropdown as Dropdown
 import List
 
 
-noCmd : Model -> (Model, Cmd Msg)
-noCmd model = ( model, Cmd.none )
-
-
 add : Pet -> List LineItem -> List LineItem
 add pet lineItems =
     if List.member pet <| List.map fst lineItems then
@@ -27,34 +23,26 @@ mapWhen f pet (pet', volume) =
         (pet', volume)
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> Model
 update msg model = case msg of
 
     Add pet ->
         { model | cart = add pet model.cart }
-        |> noCmd
 
     Increment pet ->
         { model | cart =
             List.map (mapWhen ((+) 1) pet) model.cart }
-        |> noCmd
 
     Decrement pet ->
         { model | cart =
             List.map (mapWhen (flip (-) 1) pet) model.cart }
-        |> noCmd
 
     Delete pet ->
         { model | cart =
             List.filter (\(pet', _) -> pet' /= pet) model.cart }
-        |> noCmd
 
     Dropdown msg ->
-        let (newSelect, newCmd) =
-            Dropdown.update msg model.select
-        in
-            ({ model | select = newSelect }
-            , Cmd.map Dropdown newCmd)
+        { model | select = Dropdown.update msg model.select }
 
     NoOp ->
-        (model, Cmd.none)
+        model

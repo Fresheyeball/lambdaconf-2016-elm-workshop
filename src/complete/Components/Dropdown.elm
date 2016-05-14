@@ -24,19 +24,19 @@ init : (a -> String) -> String -> Maybe a -> List a -> Model a
 init = Model False
 
 
-update : Msg a -> Model a -> (Model a, Cmd (Msg a))
+update : Msg a -> Model a -> Model a
 update msg model =
   case msg of
 
     Toggle ->
-      ({ model | isOpen = not model.isOpen }, Cmd.none)
+      { model | isOpen = not model.isOpen }
 
     Close ->
-      ({ model | isOpen = False }, Cmd.none)
+      { model | isOpen = False }
 
     Select x ->
-      ({ model | isOpen = False
-               , selected = Just x }, Cmd.none)
+      { model | isOpen = False
+              , selected = Just x }
 
 
 option : String -> a -> Html (Msg a)

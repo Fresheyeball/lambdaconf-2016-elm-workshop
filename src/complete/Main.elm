@@ -7,8 +7,7 @@ import Update
 
 
 main : Program Never
-main = App.program
-    { init = (Model.init, Cmd.none)
+main = App.beginnerProgram
+    { model = Model.init
     , update = Update.update
-    , subscriptions = always Sub.none
     , view = View.view }
