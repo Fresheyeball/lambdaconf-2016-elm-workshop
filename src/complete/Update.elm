@@ -8,7 +8,7 @@ import List
 
 
 noCmd : Model -> (Model, Cmd Msg)
-noCmd model = ( Debug.log "model" model, Cmd.none )
+noCmd model = ( model, Cmd.none )
 
 
 add : Pet -> List LineItem -> List LineItem
@@ -22,7 +22,7 @@ add pet lineItems =
 mapWhen : (Int -> Int) -> Pet -> LineItem -> LineItem
 mapWhen f pet (pet', volume) =
     if pet' == pet then
-        (pet', clamp 0 25 (f volume))
+        (pet', clamp 1 25 (f volume))
     else
         (pet', volume)
 
@@ -46,7 +46,7 @@ update msg model = case msg of
 
     Delete pet ->
         { model | cart =
-            List.filter (\(pet', _) -> pet' == pet) model.cart }
+            List.filter (\(pet', _) -> pet' /= pet) model.cart }
         |> noCmd
 
     Dropdown msg ->
