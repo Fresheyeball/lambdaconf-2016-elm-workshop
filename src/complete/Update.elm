@@ -22,7 +22,7 @@ add pet lineItems =
 mapWhen : (Int -> Int) -> Pet -> LineItem -> LineItem
 mapWhen f pet (pet', volume) =
     if pet' == pet then
-        (pet', f volume)
+        (pet', clamp 0 25 (f volume))
     else
         (pet', volume)
 
@@ -41,7 +41,7 @@ update msg model = case msg of
 
     Decrement pet ->
         { model | cart =
-            List.map (mapWhen ((+) 1) pet) model.cart }
+            List.map (mapWhen (flip (-) 1) pet) model.cart }
         |> noCmd
 
     Delete pet ->
@@ -56,4 +56,5 @@ update msg model = case msg of
             ({ model | select = newSelect }
             , Cmd.map Dropdown newCmd)
 
-    NoOp -> (model, Cmd.none)
+    NoOp ->
+        (model, Cmd.none)

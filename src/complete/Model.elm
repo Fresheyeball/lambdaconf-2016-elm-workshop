@@ -11,8 +11,12 @@ type Pet
     | GelatinousBlob
 
 
+type alias Price = Float
+type alias Quantity = Int
+
+
 type alias LineItem
-    = (Pet, Int)
+    = (Pet, Quantity)
 
 
 type alias Model =
@@ -38,3 +42,11 @@ displayPet pet =
         Furby -> "Furby"
         Dragon -> "Dragon"
         GelatinousBlob -> "Gelatinous Blob"
+
+
+price : Pet -> Price
+price pet =
+    case pet of
+        Furby -> 12.99
+        Dragon -> 44.99
+        GelatinousBlob -> 19.99

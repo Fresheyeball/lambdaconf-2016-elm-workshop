@@ -56,7 +56,10 @@ mainText model =
 view : Model a -> Html (Msg a)
 view model =
   div
-    [ class <| "dropdown" ++ if model.isOpen then " open" else "" ]
+    [ class <| "dropdown" ++ if model.isOpen then " open" else ""
+    , style [ ("display", "inline-block")
+            , ("margin", "0 1rem")]
+    ]
     [ button
       [ class "btn btn-secondary dropdown-toggle", onClick Toggle ]
       [ mainText model ]
