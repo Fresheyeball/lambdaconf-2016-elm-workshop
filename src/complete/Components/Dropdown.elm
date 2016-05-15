@@ -1,4 +1,5 @@
-module Components.Dropdown exposing (..)
+module Components.Dropdown
+    exposing (Msg, Model, update, view, init)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -13,39 +14,56 @@ type Msg a
 
 type alias Model a =
   { isOpen : Bool
-  , selected : a
+  , display : a -> String
+  , placeholder : String
+  , selected : Maybe a
   , options : List a }
 
 
-update : Msg a -> Model a -> (Model a, Cmd a)
+init : (a -> String) -> String -> Maybe a -> List a -> Model a
+init = Model False
+
+
+update : Msg a -> Model a -> Model a
 update msg model =
   case msg of
 
     Toggle ->
-      ({ model | isOpen = not model.isOpen }, Cmd.none)
+      { model | isOpen = not model.isOpen }
 
     Close ->
-      ({ model | isOpen = False }, Cmd.none)
+      { model | isOpen = False }
 
     Select x ->
-      ({ model | isOpen = False
-               , selected = x}, Cmd.none)
+      { model | isOpen = False
+              , selected = Just x }
 
 
-option : a -> Html (Msg a)
-option a = button
-  [ class "dropdown-item", onClick (Select a) ]
-  [ text (toString a) ]
+option : String -> a -> Html (Msg a)
+option label x =
+    button
+    [ class "dropdown-item", onClick (Select x) ]
+    [ text label ]
+
+
+mainText : Model a -> Html (Msg a)
+mainText model =
+    Maybe.map model.display model.selected
+    |> Maybe.withDefault model.placeholder
+    |> text
 
 
 view : Model a -> Html (Msg a)
 view model =
   div
-    [ class <| "dropdown" ++ if model.isOpen then " open" else "" ]
+    [ class <| "dropdown" ++ if model.isOpen then " open" else ""
+    , style [ ("display", "inline-block")
+            , ("margin", "0 1rem")]
+    ]
     [ button
       [ class "btn btn-secondary dropdown-toggle", onClick Toggle ]
-      [ text "Dropdown" ]
+      [ mainText model ]
     , div
       [ class "dropdown-menu" ]
-      (List.map option model.options)      
+      (List.map (\x -> option (model.display x) x) model.options)
     ]
