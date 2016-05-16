@@ -24,8 +24,9 @@ First notice `Add` in the `Msg` union type in [src/kit/Msg.elm](https://github.c
 
 So our system can handle an `Add` message that contains a `Pet` as defined in our **Model**.
 
-To make this work we will need to do 3 things
+To make this work we will need to do 2 things
 
 1. Put the add button into the `view` function, by using the button component, such that it sends `Add Furby` when clicked.
 1. Handle incoming `Add` messages in the `update` function, by updating the model with a new `LineItem` as defined in our **Model**.
-1.
+
+Since we already have the cart list wired up to the view, we should be able to add some furbies! 
