@@ -77,3 +77,6 @@ If you have docker on a Linux host, there is a prepped image to run this project
 ```
 
 when you are done its recommended you run `xhost -` as this script opens up xorg to serve atom from inside the container.
+
+
+# [Lets GO!](https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop/blob/master/TASKS.md)
