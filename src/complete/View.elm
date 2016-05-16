@@ -1,29 +1,26 @@
 module View
     exposing (view)
 
-import String
 import Msg exposing (Msg(..))
 import Model exposing (Model, Pet(..), LineItem)
 import Html exposing (..)
 import Html.App as Html
 import Html.Attributes as Attr
-import Html.Events as Events
+import Components.IconButton as IconButton
 import Components.Button as Button
 import Components.Dropdown as Dropdown
+import Components.Css as Css
+import DisplayHelpers exposing (displayAsDollars)
 
 
 bootstrap : Html Msg
-bootstrap = node "link"
-    [ Attr.rel "stylesheet"
-    , Attr.href "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" ]
-    []
+bootstrap = Css.link
+    "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css"
 
 
 fontAwesome : Html Msg
-fontAwesome = node "link"
-    [ Attr.rel "stylesheet"
-    , Attr.href "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" ]
-    []
+fontAwesome = Css.link
+    "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
 
 
 wrap : List (Html Msg) -> Html Msg
@@ -50,61 +47,13 @@ add model =
         Nothing -> Button.view NoOp "Add"
 
 
-toFixed : Int -> Float -> String
-toFixed precision value =
-    let
-        power = toFloat 10 ^ (toFloat precision)
-        pad num = case num of
-            [x, y] ->
-                [x, String.padRight precision '0' y]
-            [val] ->
-                [val, String.padRight precision '0' ""]
-            val ->
-                val
-  in
-    (round (value * power) |> toFloat) / power
-    |> toString
-    |> String.split "."
-    |> pad
-    |> String.join "."
-
-
-displayAsDollars : Float -> String
-displayAsDollars x = "$" ++ toFixed 2 x
-
-
-iconBtn : String -> Msg -> Html Msg
-iconBtn x msg =
-    button
-        [ Attr.type' "button"
-        , Attr.class "btn btn-default btn-sm"
-        , Events.onClick msg ]
-        [ i
-            [ Attr.class ("fa fa-" ++ x) ]
-            []
-        ]
-
-
 quantityControl : Pet -> Html Msg
 quantityControl pet =
     div [ Attr.class "btn-group btn-group-sm"
         , Attr.style [ ("margin-left","1rem") ]
         ]
-        [ iconBtn "minus" (Decrement pet)
-        , iconBtn "plus" (Increment pet)
-        ]
-
-
-deleteBtn : Pet -> Html Msg
-deleteBtn pet =
-    button
-        [ Attr.type' "button"
-        , Attr.class "btn btn-default btn-sm"
-        , Events.onClick (Delete pet) ]
-        [ i
-            [ Attr.class "fa fa-times"
-            , Events.onClick (Delete pet) ]
-            []
+        [ IconButton.view "minus" (Decrement pet)
+        , IconButton.view "plus" (Increment pet)
         ]
 
 
@@ -126,7 +75,7 @@ lineItem (pet, quantity) =
             , quantityControl pet ]
         , td
             [ textAlign "right" ]
-            [ deleteBtn pet ]
+            [ IconButton.view "times" (Delete pet) ]
         ]
 
 
@@ -136,7 +85,6 @@ emptyCart =
         [ td [ Attr.colspan 4
              , textAlign "center" ]
              [ text "Your Cart Is Empty" ] ]
-
 
 
 cart : Model -> Html Msg
