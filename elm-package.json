@@ -4,7 +4,7 @@
     "repository": "https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop.git",
     "license": "GNU3",
     "source-directories": [
-        "src/complete"
+        "src/kit"
     ],
     "exposed-modules": [],
     "dependencies": {

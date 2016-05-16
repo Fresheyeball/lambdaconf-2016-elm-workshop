@@ -1,5 +1,6 @@
 echo "running dev environment kit for LambdaConf 2016"
 xhost +
+sudo rm -rf elm-stuff
 docker run -it -p 8000:8000 \
                   -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
                   -v /dev/shm:/dev/shm \

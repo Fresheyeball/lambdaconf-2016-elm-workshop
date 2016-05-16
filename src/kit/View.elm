@@ -40,9 +40,7 @@ header =
 
 add : Model -> Html Msg
 add model =
-    case model.select.selected of
-        Just pet -> Button.view (Add pet) "Add"
-        Nothing -> Button.view NoOp "Add"
+    Button.view (Add Furby) "Add"    
 
 
 quantityControl : Pet -> Html Msg
@@ -50,8 +48,9 @@ quantityControl pet =
     div [ Attr.class "btn-group btn-group-sm"
         , Attr.style [ ("margin-left","1rem") ]
         ]
-        [ IconButton.view "minus" (Decrement pet)
-        , IconButton.view "plus" (Increment pet)
+        -- TODO: Wire up increment and decrement functionality
+        [ IconButton.view "minus" NoOp
+        , IconButton.view "plus" NoOp
         ]
 
 
@@ -73,7 +72,7 @@ lineItem (pet, quantity) =
             , quantityControl pet ]
         , td
             [ textAlign "right" ]
-            [ IconButton.view "times" (Delete pet) ]
+            [ IconButton.view "times" NoOp ]
         ]
 
 
