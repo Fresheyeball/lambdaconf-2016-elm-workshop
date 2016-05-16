@@ -70,14 +70,10 @@ We will be working the the latest version of the Elm compiler **0.17.x**, which 
 
 ### Docker
 
-If you have docker on a linux host, there is a prepped image to run this project. Running this script will launch the **Atom** editor with **Elm** packages installed and a browser window with the **Reactor**.
+If you have docker on a Linux host, there is a prepped image to run this project. Running this script will launch the **Atom** editor with **Elm** packages installed and a browser window with the **Reactor**.
 
 ```
 ./docker-dev.sh
 ```
 
-when you are done its recommened you run
-
-```
-xhost -
-```
+when you are done its recommended you run `xhost -` as this script opens up xorg to serve atom from inside the container.
