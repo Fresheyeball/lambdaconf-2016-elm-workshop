@@ -40,7 +40,7 @@ header =
 
 add : Model -> Html Msg
 add model =
-    Button.view (Add Furby) "Add"    
+    Button.view (Add Furby) "Add"
 
 
 quantityControl : Pet -> Html Msg
@@ -114,16 +114,22 @@ cart model = let
 
 total : Model -> Html Msg
 total model = let
-
     -- TODO: Calculate total
     total' = 0.0
-
     in wrap
         [ h4
             [ Attr.style [("text-align","right")] ]
             [ text <| "Total: " ++ displayAsDollars total' ]]
 
 
+{-
+  This is the main view function. The entire view layer of our
+  application will exist within this function.
+
+  Note that `Html` is a parameterized type.
+  This is to ensure that the type of messages this Html can produce,
+  match what `update` is going to recieve.
+-}
 view : Model -> Html Msg
 view model =
     wrap
@@ -134,8 +140,6 @@ view model =
     , total model
     , div [ Attr.class "form-inline form-control" ]
         [ label [] [ text "Add Pet To Cart" ]
-
         -- TODO: Add pet dropdown and "Add" button
-
         ]
     ]
