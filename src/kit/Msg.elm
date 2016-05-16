@@ -1,14 +1,10 @@
 module Msg
     exposing (Msg(..))
 
-import Components.Dropdown as Dropdown
 import Model exposing (Pet)
 
 
+-- TODO: Add the rest of the user actions
 type Msg
     = Add Pet
-    | Increment Pet
-    | Decrement Pet
-    | Delete Pet
     | NoOp
-    | Dropdown (Dropdown.Msg Pet)

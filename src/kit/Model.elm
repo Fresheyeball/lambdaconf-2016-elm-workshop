@@ -2,9 +2,7 @@ module Model
     exposing (..)
 
 
-import Components.Dropdown as Dropdown
-
-
+-- TODO: Add more interesting Pets
 type Pet
     = Furby
     | Dragon
@@ -18,22 +16,14 @@ type alias Quantity = Int
 type alias LineItem
     = (Pet, Quantity)
 
-
+-- TODO: Wire Dropdown Component into Model
 type alias Model =
-    { cart : List LineItem
-    , select : Dropdown.Model Pet }
+    { cart : List LineItem }
 
 
 init : Model
 init =
-    { cart = []
-    , select = Dropdown.init
-        displayPet
-        "Select Pet"
-        Nothing
-        [ Furby
-        , Dragon
-        , GelatinousBlob ] }
+    { cart = [] }
 
 
 displayPet : Pet -> String

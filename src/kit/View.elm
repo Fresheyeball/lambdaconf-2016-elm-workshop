@@ -4,11 +4,9 @@ module View
 import Msg exposing (Msg(..))
 import Model exposing (Model, Pet(..), LineItem)
 import Html exposing (..)
-import Html.App as Html
 import Html.Attributes as Attr
 import Components.IconButton as IconButton
 import Components.Button as Button
-import Components.Dropdown as Dropdown
 import Components.Css as Css
 import DisplayHelpers exposing (displayAsDollars)
 
@@ -117,10 +115,9 @@ cart model = let
 
 total : Model -> Html Msg
 total model = let
-    subtotal (pet, quantity) acc =
-        acc + Model.price pet * toFloat quantity
 
-    total' = List.foldr subtotal 0 model.cart
+    -- TODO: Calculate total
+    total' = 0.0
 
     in wrap
         [ h4
@@ -138,7 +135,8 @@ view model =
     , total model
     , div [ Attr.class "form-inline form-control" ]
         [ label [] [ text "Add Pet To Cart" ]
-        , Html.map Dropdown (Dropdown.view model.select)
-        , add model
+
+        -- TODO: Add pet dropdown and "Add" button
+
         ]
     ]
