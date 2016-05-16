@@ -16,7 +16,7 @@ Then take a look at the **Model** for our application here [src/kit/Model.elm](h
 
  See the core library here:
 
-### [You will likely need to reference **Elm's** core libraries to complete these tasks. See the core library here.](http://package.elm-lang.org/packages/elm-lang/core/4.0.0/Basics)
+### [You will likely need to reference **Elm's** core libraries to complete these tasks. See the core libraries here.](http://package.elm-lang.org/packages/elm-lang/core/4.0.0/Basics)
 
 ## Implementing Add
 
@@ -29,4 +29,4 @@ To make this work we will need to do 2 things
 1. Put the add button into the `view` function, by using the button component, such that it sends `Add Furby` when clicked.
 1. Handle incoming `Add` messages in the `update` function, by updating the model with a new `LineItem` as defined in our **Model**.
 
-Since we already have the cart list wired up to the view, we should be able to add some furbies! 
+Since we already have the cart list wired up to the view, we should be able to add some furbies!
