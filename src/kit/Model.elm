@@ -37,6 +37,9 @@ This is our one and only source of truth for the state of
 an Elm application. If we need a value to change over time
 it will appear on this type in some way.
 
+The Model is a record (which is kind of like an object).
+Learn more about record syntax http://elm-lang.org/docs/records
+
 -}
 type alias Model =
     { cart : List LineItem

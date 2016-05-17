@@ -35,6 +35,8 @@ module Main exposing (..)
   so all you have to write is the parts specific to the logic of
   your application, namely
 
+  Msg
+  Model 
   model : Model
   update : Msg -> Model -> Model
   view : Model -> Html Msg

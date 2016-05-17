@@ -6,8 +6,9 @@ import Model exposing (Pet)
 
 {-
 
-  `Msg` is a union type representing messages
-  that flow through our application.
+  `Msg` is a union type representing ALL messages
+  that flow through our application. Child components
+  will need a space on here, so we can route messages.
 
   Union types are types with more than one constructor
 
@@ -16,6 +17,8 @@ import Model exposing (Pet)
 
   So that when a function takes `MyType`, it may
   recieve a value of either `MyValue Int` or `MyOtherValue`
+  Learn more about union types here
+    http://guide.elm-lang.org/types/union_types.html
 
 -}
 type Msg

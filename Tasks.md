@@ -26,3 +26,8 @@ To make this work we will need to do 2 things
 1. Handle incoming `Add` messages in the `update` function, by updating the model with a new `LineItem` as defined in our **Model**.
 
 Since we already have the cart list wired up to the view, we should be able to add some furbies!
+
+## Increment and Decrement
+## Calculate the Total
+## Embed the Dropdown Component
+## Delete an Item

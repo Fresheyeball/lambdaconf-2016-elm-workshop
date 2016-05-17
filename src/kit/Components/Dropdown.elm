@@ -80,7 +80,7 @@ init = Model False
   Alters the model depending on the `Msg a` recieved.
 
   We will need to call this function from the parent application's
-  update function to wire in a dropdown.
+  update function to wire in a Dropdown.
 
 -}
 update : Msg a -> Model a -> Model a

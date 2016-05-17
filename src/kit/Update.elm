@@ -4,6 +4,7 @@ module Update
 import Model exposing (Model, LineItem, Pet)
 import Msg exposing (Msg(..))
 
+
 {-
   Helper to update a `LineItem` when it contains
   a given `Pet`.
@@ -14,6 +15,7 @@ mapWhen f pet (pet', volume) =
         (pet', clamp 1 25 (f volume))
     else
         (pet', volume)
+
 
 {-
   This is the main update function for our application.
