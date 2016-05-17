@@ -1,10 +1,5 @@
 module Main exposing (..)
 
-import Html.App as App
-import Model
-import View
-import Update
-
 {-
 
   An Elm application consists of (atleast) 3 parts
@@ -22,14 +17,14 @@ import Update
   a giant fold. Consider:
 
   folding looks something like this
-  ```
+
   fold : (a -> b -> b) -> b -> f a -> b
-  ```
+
 
   in Elm's case
-  ```
+
   fold : (Msg -> Model -> Model) -> Model -> Signal Msg -> Signal Model
-  ```
+
 
   from there its easy to get a `Signal` of `Html` for the browser to render.
   Because of this simple model, Signals can be omitted from the langauge all
@@ -45,6 +40,12 @@ import Update
   view : Model -> Html Msg
 
 -}
+
+import Html.App as App
+import Model
+import View
+import Update
+
 
 main : Program Never
 main = App.beginnerProgram

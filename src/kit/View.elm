@@ -123,12 +123,14 @@ total model = let
 
 
 {-
+
   This is the main view function. The entire view layer of our
   application will exist within this function.
 
   Note that `Html` is a parameterized type.
   This is to ensure that the type of messages this Html can produce,
   match what `update` is going to recieve.
+
 -}
 view : Model -> Html Msg
 view model =
