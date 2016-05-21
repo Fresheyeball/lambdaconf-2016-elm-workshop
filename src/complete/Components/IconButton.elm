@@ -1,5 +1,4 @@
-module Components.IconButton
-  exposing (view)
+module Components.IconButton exposing (view)
 
 import Html.Attributes as Attr
 import Html.Events as Events
@@ -11,8 +10,8 @@ view x msg =
     button
         [ Attr.type' "button"
         , Attr.class "btn btn-default btn-sm"
-        , Events.onClick msg ]
-        [ i
-            [ Attr.class ("fa fa-" ++ x) ]
+        , Events.onClick msg
+        ]
+        [ i [ Attr.class ("fa fa-" ++ x) ]
             []
         ]
