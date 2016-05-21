@@ -62,7 +62,7 @@ cd lambdaconf-2016-elm-workshop
 elm reactor
 ```
 
-Elm comes with a server and compilation assistant called **reactor**. After running `elm reactor` you should be able to visit [http://localhost:8000/src/kit/Main.elm](http://localhost:8000/src/kit/Main.elm) in your browser to see the output of your code.
+Elm comes with a server and compilation assistant called **reactor**. After running `elm reactor` you should be able to visit [localhost:8000/src/kit/Main.elm](http://localhost:8000/src/kit/Main.elm) in your browser to see the output of your code.
 
 #### CAUTION
 
