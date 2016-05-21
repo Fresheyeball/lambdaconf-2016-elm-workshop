@@ -98,10 +98,9 @@ cart model =
             tbody []
                 <| case List.map lineItem model.cart of
                     [] ->
-                        [ emptyCart ]
+                      [ emptyCart ]
 
-                    x ->
-                        x
+                    x -> x
 
         head' =
             thead []
@@ -128,8 +127,7 @@ total : Model -> Html Msg
 total model =
     let
         -- TODO: Calculate total
-        total' =
-            0.0
+        total' = 0.0
     in
         wrap
             [ h4 [ Attr.style [ ( "text-align", "right" ) ] ]

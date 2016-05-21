@@ -12,10 +12,9 @@ type Pet
     = Furby
     | Dragon
     | GelatinousBlob
+    -- TODO: Add more interesting Pets
 
-
-
--- TODO: Add more interesting Pets
+    
 {-
 
    These are type aliases. In this case

@@ -26,7 +26,4 @@ import Model exposing (Pet)
 type Msg
     = Add Pet
     | NoOp
-
-
-
--- TODO: Add the rest of the user actions
+    -- TODO: Add the rest of the user actions
