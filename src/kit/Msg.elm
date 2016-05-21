@@ -7,7 +7,8 @@ import Model exposing (Pet)
 {-
 
   `Msg` is a union type representing ALL messages
-  that flow through our application. Child components
+  that flow through our application. All discrete events
+  in Elm are reffered to as messages. Child components
   will need a space on here, so we can route messages.
 
   Union types are types with more than one constructor
