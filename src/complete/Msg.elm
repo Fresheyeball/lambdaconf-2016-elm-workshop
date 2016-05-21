@@ -1,5 +1,4 @@
-module Msg
-    exposing (Msg(..))
+module Msg exposing (Msg(..))
 
 import Components.Dropdown as Dropdown
 import Model exposing (Pet)
