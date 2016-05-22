@@ -27,6 +27,8 @@ wrap =
         , Attr.style
             [ ( "max-width", "46rem" )
             , ( "margin-top", "1.5rem" )
+            , ( "background", "rgba(255,255,255,0.9)" )
+            , ( "padding-bottom", "1rem" )
             ]
         ]
 
@@ -135,6 +137,15 @@ total model =
             ]
 
 
+background : Html Msg -> Html Msg
+background app =
+  div [ Attr.style [ ("background", "url('http://i.imgur.com/f9wAIL7.png') no-repeat bottom center fixed" )
+                   , ("width", "100%")
+                   , ("height", "100%")
+                   , ("padding-top", "1rem")] ]
+      [ app
+      ]
+
 
 {-
 
@@ -150,7 +161,7 @@ total model =
 
 view : Model -> Html Msg
 view model =
-    wrap
+    background <| wrap
         [ bootstrap
         , fontAwesome
         , header
