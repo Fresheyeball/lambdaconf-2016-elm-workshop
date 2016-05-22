@@ -7429,6 +7429,23 @@ var _Fresheyeball$lambdaconf_2016_elm_workshop$Msg$Increment = function (a) {
 var _Fresheyeball$lambdaconf_2016_elm_workshop$Msg$Add = function (a) {
 	return {ctor: 'Add', _0: a};
 };
+var _Fresheyeball$lambdaconf_2016_elm_workshop$View$background = function (app) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$style(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'background', _1: 'url(\'http://i.imgur.com/f9wAIL7.png\') no-repeat bottom center fixed'},
+						{ctor: '_Tuple2', _0: 'width', _1: '100%'},
+						{ctor: '_Tuple2', _0: 'height', _1: '100%'},
+						{ctor: '_Tuple2', _0: 'padding-top', _1: '1rem'}
+					]))
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[app]));
+};
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$textAlign = function (x) {
 	return _elm_lang$html$Html_Attributes$style(
 		_elm_lang$core$Native_List.fromArray(
@@ -7652,7 +7669,7 @@ var _Fresheyeball$lambdaconf_2016_elm_workshop$View$header = A2(
 				]),
 			_elm_lang$core$Native_List.fromArray(
 				[
-					_elm_lang$html$Html$text('Skeezoyd\'s Perfectly Normal Pet Emporium!')
+					_elm_lang$html$Html$text('Skeezoyd\'s Perfectly Normal Pet Emporium')
 				]))
 		]));
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$wrap = _elm_lang$html$Html$div(
@@ -7663,7 +7680,9 @@ var _Fresheyeball$lambdaconf_2016_elm_workshop$View$wrap = _elm_lang$html$Html$d
 			_elm_lang$core$Native_List.fromArray(
 				[
 					{ctor: '_Tuple2', _0: 'max-width', _1: '46rem'},
-					{ctor: '_Tuple2', _0: 'margin-top', _1: '1.5rem'}
+					{ctor: '_Tuple2', _0: 'margin-top', _1: '1.5rem'},
+					{ctor: '_Tuple2', _0: 'background', _1: 'rgba(255,255,255,0.9)'},
+					{ctor: '_Tuple2', _0: 'padding-bottom', _1: '1rem'}
 				]))
 		]));
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$total = function (model) {
@@ -7699,37 +7718,38 @@ var _Fresheyeball$lambdaconf_2016_elm_workshop$View$total = function (model) {
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$fontAwesome = _Fresheyeball$lambdaconf_2016_elm_workshop$Components_Css$link('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$bootstrap = _Fresheyeball$lambdaconf_2016_elm_workshop$Components_Css$link('https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css');
 var _Fresheyeball$lambdaconf_2016_elm_workshop$View$view = function (model) {
-	return _Fresheyeball$lambdaconf_2016_elm_workshop$View$wrap(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_Fresheyeball$lambdaconf_2016_elm_workshop$View$bootstrap,
-				_Fresheyeball$lambdaconf_2016_elm_workshop$View$fontAwesome,
-				_Fresheyeball$lambdaconf_2016_elm_workshop$View$header,
-				_Fresheyeball$lambdaconf_2016_elm_workshop$View$cart(model),
-				_Fresheyeball$lambdaconf_2016_elm_workshop$View$total(model),
-				A2(
-				_elm_lang$html$Html$div,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$class('form-inline form-control')
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$html$Html$label,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html$text('Add Pet To Cart')
-							])),
-						A2(
-						_elm_lang$html$Html_App$map,
-						_Fresheyeball$lambdaconf_2016_elm_workshop$Msg$Dropdown,
-						_Fresheyeball$lambdaconf_2016_elm_workshop$Components_Dropdown$view(model.select)),
-						_Fresheyeball$lambdaconf_2016_elm_workshop$View$add(model)
-					]))
-			]));
+	return _Fresheyeball$lambdaconf_2016_elm_workshop$View$background(
+		_Fresheyeball$lambdaconf_2016_elm_workshop$View$wrap(
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_Fresheyeball$lambdaconf_2016_elm_workshop$View$bootstrap,
+					_Fresheyeball$lambdaconf_2016_elm_workshop$View$fontAwesome,
+					_Fresheyeball$lambdaconf_2016_elm_workshop$View$header,
+					_Fresheyeball$lambdaconf_2016_elm_workshop$View$cart(model),
+					_Fresheyeball$lambdaconf_2016_elm_workshop$View$total(model),
+					A2(
+					_elm_lang$html$Html$div,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('form-inline form-control')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$label,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html$text('Add Pet To Cart')
+								])),
+							A2(
+							_elm_lang$html$Html_App$map,
+							_Fresheyeball$lambdaconf_2016_elm_workshop$Msg$Dropdown,
+							_Fresheyeball$lambdaconf_2016_elm_workshop$Components_Dropdown$view(model.select)),
+							_Fresheyeball$lambdaconf_2016_elm_workshop$View$add(model)
+						]))
+				])));
 };
 var _Fresheyeball$lambdaconf_2016_elm_workshop$Update$mapWhen = F3(
 	function (f, pet, _p0) {
