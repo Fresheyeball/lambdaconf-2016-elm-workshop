@@ -4,7 +4,7 @@ Order form toy project, for a perfectly normal Pet Shop.
 
 You can see the finished project we will be building here: [**DEMO**](http://fresheyeball.github.io/lambdaconf-2016-elm-workshop/)
 
-<img src="http://i.imgur.com/Osup29r.png" height="300" />
+<img src="http://i.imgur.com/Osup29r.png" />
 
 - [Click here to view live presentation](https://slides.com/fresheyeball/elm-workshop/live)
 - If the workshop has ended you can review the slides [here](https://slides.com/fresheyeball/elm-workshop/)
