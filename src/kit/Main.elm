@@ -2,10 +2,13 @@ module Main exposing (..)
 
 {-
 
-   Then entry point to an Elm application is of type `Program`. The most common usage 
+   The entry point to an Elm application is of type `Program`. The most common usage 
    (and the only one I'm sure exists at the moment), is with `Html.App`, which contains some 
    Program constructor functions. The program structure is described in terms of the
    3 values in The Elm Achitecture, to be wired up by the Elm runtime.
+   
+   The type `Never` in this case is indicating that our application does not have any 'flags'.
+   Which is not a topic covered in this workshop.
 
 -}
 
