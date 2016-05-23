@@ -2,44 +2,10 @@ module Main exposing (..)
 
 {-
 
-   An Elm application consists of (atleast) 3 parts
-
-   An initial `Model`,
-   a transform function `update : Msg -> Model -> Model`,
-   and a view function `view : Model -> Html Msg`
-
-   While Elm is no longer a FRP language and does not feature `Signal`s,
-   the core application structure Elm dictates comes from the emergent
-   properties of `Signal`s. You can think of Elm like an FRP language,
-   where working with `Signal`s has been made so abstract, its become opaque.
-
-   Essentially you can think of it as application structured around
-   a giant fold. Consider:
-
-   folding looks something like this
-
-   fold : (a -> b -> b) -> b -> f a -> b
-
-
-   in Elm's case
-
-   fold : (Msg -> Model -> Model) -> Model -> Signal Msg -> Signal Model
-
-
-   from there its easy to get a `Signal` of `Html` for the browser to render.
-   Because of this simple model, Signals can be omitted from the langauge all
-   together as the runtime will just wire up your app like so:
-
-   runtimeRender (map view (fold update init (runtimeInputs)))
-
-   so all you have to write is the parts specific to the logic of
-   your application, namely
-
-   Msg
-   Model
-   model : Model
-   update : Msg -> Model -> Model
-   view : Model -> Html Msg
+   Then entry point to an Elm application is of type `Program`. The most common usage 
+   (and the only one I'm sure exists at the moment), is with `Html.App`, which contains some 
+   Program constructor functions. The program structure is described in terms of the
+   3 values in The Elm Achitecture, to be wired up by the Elm runtime.
 
 -}
 
