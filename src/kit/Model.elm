@@ -3,7 +3,7 @@ module Model exposing (..)
 {-
 
    This is a union type representing the
-   different `Pet`s for sale at Skeezoyd's.
+   different `Pet`s for sale at Skezoyd's.
 
 -}
 
@@ -44,7 +44,7 @@ type alias LineItem =
    ALL STATE WILL BE DOCUMENTED BY THIS TYPE.
 
    This is our one and only source of truth for the state of
-   an Elm application. If we need a value to change over time
+   an Elm application. If we need a value to change over time,
    it will appear on this type in some way.
 
    The Model is a record (which is kind of like an object).
