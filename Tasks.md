@@ -1,6 +1,6 @@
 # Tasks
 
-In this workshop we will be implementing some features using existing code as some scaffolding.
+In this workshop, we will be implementing some features using existing code as scaffolding.
 
 1. Make a button that adds a furby to the shopping cart
 1. Increment and Decrement the quantity of furbies in the line item
@@ -10,7 +10,8 @@ In this workshop we will be implementing some features using existing code as so
 
 ## Build your mental model
 
-Learn about how applications work by reading [Main.elm](https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop/blob/master/src/kit/Main.elm)
+Review the entry point 
+[Main.elm](https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop/blob/master/src/kit/Main.elm)
 
 Then take a look at the **Model** for our application here [src/kit/Model.elm](https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop/blob/master/src/kit/Model.elm)
 
@@ -18,7 +19,7 @@ Then take a look at the **Model** for our application here [src/kit/Model.elm](h
 
 First notice `Add` in the `Msg` union type in [src/kit/Msg.elm](https://github.com/Fresheyeball/lambdaconf-2016-elm-workshop/blob/master/src/kit/Msg.elm#L9)
 
-So our system can handle an `Add` message that contains a `Pet` as defined in our **Model**.
+So that our system can handle an `Add` message, containing a `Pet` as defined in our **Model**.
 
 To make this work we will need to do 2 things
 
