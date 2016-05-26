@@ -7,8 +7,8 @@ module Main exposing (..)
    Program constructor functions. The program structure is described in terms of the
    3 values in The Elm Achitecture, to be wired up by the Elm runtime.
    
-   The type `Never` in this case is indicating that our application does not have any 'flags'.
-   Which is not a topic covered in this workshop.
+   The type `Never`, in this case, is indicating that our application does not have any 'flags',
+   which is not a topic covered in this workshop.
    
    Elm is a language which compiles to JavaScript. While the Elm compiler can output a 
    html file where Elm is automatically initialized, the start of an Elm application's life 
