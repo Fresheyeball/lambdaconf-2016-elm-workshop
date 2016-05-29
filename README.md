@@ -46,7 +46,7 @@ npm install -g elm@0.17.0
 You can use any editor you like, however there is reasonably good Elm support for the following editors:
 
 - Atom
-  - `apm install language-elm linter elm-linter-make`
+  - `apm install language-elm linter linter-elm-make`
 - Emacs
   - [elm-mode](https://github.com/jcollard/elm-mode)
 - Vim
